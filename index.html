@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -129,6 +130,66 @@
             padding: 1rem;
             position: relative;
             z-index: 1;
+        }
+        
+        .header-image {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .header-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+        
+        .header-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+        }
+        
+        /* Images in content */
+        .section-image {
+            width: 100%;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-height: 500px;
+            object-fit: cover;
+        }
+        
+        .image-caption {
+            text-align: center;
+            font-style: italic;
+            margin-top: 10px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            color: #8ecae6;
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .main-content {
@@ -285,7 +346,13 @@
     </div>
 
     <header>
-        <h1>Ecopedagogía y Ciudadanía Planetaria</h1>
+        <div class="header-image">
+            <img src="f1.jpg" alt="Ecopedagogía y Ciudadanía Planetaria">
+            <div class="header-text">
+                <h1>Ecopedagogía y Ciudadanía Planetaria</h1>
+                <p>Educación para la era planetaria y el desarrollo sostenible</p>
+            </div>
+        </div>
     </header>
 
     <button class="menu-btn">☰ Menú</button>
@@ -307,6 +374,9 @@
             <section id="introduccion" class="section">
                 <h2>Introducción</h2>
                 <p>La ecopedagogía es un movimiento que busca reorientar la educación hacia un desarrollo sostenible y una ciudadanía planetaria. Durante la última década, América Latina y el Caribe han vivido intensos procesos de democratización, paralelamente a economías de libre mercado y un adelgazamiento del rol del Estado (Gutiérrez et al., 1996).</p>
+                
+                <img src="f1.jpg" alt="Concepto de Ecopedagogía" class="section-image">
+                <p class="image-caption">Fig. 1: Ilustración conceptual de la ecopedagogía como cuidado de la Tierra a través de la educación y conciencia colectiva.</p>
                 
                 <p>La crisis actual que vive la región no es tan sólo una crisis institucional o individual. No es solo la mala distribución y consumo de bienes, sino una crisis de valores y de destino. El tema ambiental se ha convertido en causa social ciudadana que convoca a muchos grupos voluntarios a nivel local, nacional, regional y global.</p>
                 
@@ -330,6 +400,7 @@
             </section>
 
             <section id="educacion-ambiental" class="section">
+              
                 <h2>Educación Tecnológica Ambiental</h2>
                 <p>La educación tecnológica ambiental integra el conocimiento de las nuevas tecnologías con la conciencia ecológica. Este enfoque busca utilizar herramientas tecnológicas como geoportales, sistemas de información geográfica y tecnologías de percepción remota para entender mejor los ecosistemas, medir el impacto ambiental y desarrollar soluciones sostenibles (Gorelick et al., 2017).</p>
                 
@@ -339,7 +410,9 @@
                 
                 <h3>Geoportales y Sistemas Computacionales para la Comprensión Territorial</h3>
                 <p>Los geoportales como Google Earth Engine, representan una revolución en la forma en que las comunidades pueden entender sus territorios. Estas plataformas permiten democratizar el acceso a datos espaciales y facilitan el análisis ambiental mediante herramientas accesibles (Kumar & Mutanga, 2018). La integración de técnicas de machine learning y deep learning con datos satelitales y de drones está transformando la manera en que se realiza la gestión ambiental y la toma de decisiones territoriales.</p>
-
+                <img src="h1.png" alt="Educación Ambiental" class="section-image">
+                <p class="image-caption">Fig. 2: Ilustración de educación ambiental de los territorios.</p>
+                
             </section>
 
             <section id="casos-estudio" class="section">
@@ -348,6 +421,9 @@
                 <h3>Caso de Estudio: Humedal Santa María del Lago</h3>
                 <p>En el Humedal Santa María del Lago (Bogotá, Colombia), se implementó un proyecto de educación ambiental comunitaria utilizando Google Earth Engine para monitorear cambios en la cobertura vegetal y calidad del agua. Los participantes aprendieron a interpretar imágenes satelitales históricas para comprender las transformaciones del ecosistema en las últimas décadas.</p>
                 
+                <img src="f4.jpg" alt="Humedal Santa María del Lago" class="section-image">
+                <p class="image-caption">Fig. 3: Grupo de estudiantes durante la visita al Humedal Santa María del Lago en Bogotá, donde participaron en actividades de monitoreo ambiental utilizando herramientas geoespaciales.</p>
+                
                 <p>El proyecto integró técnicas de clasificación supervisada de imágenes Landsat y Sentinel-2 para detectar cambios en los patrones de vegetación acuática y terrestre entre 1985 y 2022. Los resultados mostraron una reducción del 38% en el espejo de agua y un incremento significativo en especies invasoras. La comunidad local utilizó estos datos para desarrollar un plan de acción de restauración ecológica y establecer un sistema de alerta temprana para monitorear futuros cambios (García-Martínez et al., 2023).</p>
                 
                 <blockquote>"La democratización de las herramientas geoespaciales representa un cambio paradigmático en la gestión ambiental comunitaria, permitiendo que el conocimiento técnico complejo sea accesible para las comunidades locales." (García-Martínez et al., 2023, p. 142)</blockquote>
@@ -355,12 +431,29 @@
                 <h3>Transferencia de Conocimiento en Costa de Marfil</h3>
                 <p>En Costa de Marfil, un proyecto innovador dirigido por el experto en agroecología John Monje implementó la transferencia de conocimientos sobre el uso de datos satelitales y captura con drones para la toma de decisiones agrícolas. Utilizando algoritmos de machine learning, específicamente redes neuronales convolucionales para la clasificación de imágenes, las comunidades locales fueron capacitadas para identificar patrones de deforestación, evaluar la salud de los cultivos y optimizar el uso del agua.</p>
                 
+                <div class="image-grid">
+                    <div class="image-item">
+                        <img src="f2.jpg" alt="Capacitación en Costa de Marfil" class="section-image">
+                        <p class="image-caption">Fig. 4: Capacitación sobre uso de drones y sistemas de información geográfica con comunidades locales de Costa de Marfil.</p>
+                    </div>
+                    <div class="image-item">
+                        <img src="f3.jpg" alt="Explicación de mapas en Costa de Marfil" class="section-image">
+                        <p class="image-caption">Fig. 5: Explicación de patrones de cultivo y gestión del agua utilizando mapeo participativo para agricultores locales.</p>
+                    </div>
+                </div>
+                
                 <p>El proyecto trabajó con 25 comunidades agrícolas, capacitando a 120 agricultores y técnicos locales en el uso de drones de bajo costo equipados con cámaras multiespectrales. Los datos recopilados se procesaron utilizando algoritmos de deep learning para generar índices de vegetación (NDVI) y detectar estrés hídrico. Los resultados mostraron un aumento del 27% en la producción de cacao con una reducción del 18% en el uso de agua de riego (Monje et al., 2024).</p>
                 
                 <p>Esta experiencia demuestra cómo las tecnologías avanzadas pueden ser apropiadas por comunidades rurales para mejorar sus prácticas agrícolas sostenibles y adaptarse al cambio climático. El aspecto más innovador fue la integración de conocimientos tradicionales con tecnologías avanzadas, creando un sistema de conocimiento híbrido que respeta y valoriza el saber local mientras aprovecha las ventajas de la ciencia de datos moderna.</p>
                 
                 <h3>Alertas Tempranas y Prevención de Desastres</h3>
                 <p>Los sistemas de alerta temprana basados en geoportales y técnicas de machine learning están revolucionando la forma en que las comunidades responden a amenazas naturales. En particular, las técnicas de aprendizaje profundo aplicadas a imágenes satelitales permiten detectar patrones sutiles que pueden indicar riesgos inminentes como deslizamientos, inundaciones o incendios forestales.</p>
+                
+                <h3>Transferencia de Conocimientos a Colegios Rurales</h3>
+                <p>Como parte de las iniciativas de ciudadanía ambiental, se ha implementado un programa de transferencia de conocimientos sobre el uso de drones y datos geoespaciales a estudiantes de colegios rurales. Estas actividades buscan democratizar el acceso a tecnologías avanzadas y empoderar a las nuevas generaciones en el cuidado y gestión de sus territorios.</p>
+                
+                <img src="f5.jpg" alt="Transferencia de conocimientos a comunidades rurales a nivel internacional" class="section-image">
+                <p class="image-caption">Fig. 6: Comunidad de producción de arróz en Costa de Marfil participando en actividades de aprendizaje sobre tecnologías geoespaciales y monitoreo ambiental con drones.</p>
                 
                 <p>La implementación de estos sistemas en regiones vulnerables de América Latina ha permitido que comunidades históricamente marginadas puedan anticiparse a eventos climáticos extremos, reduciendo significativamente las pérdidas humanas y materiales. El acceso a estas tecnologías representa un paso importante hacia la justicia ambiental y climática (Rodríguez-Alarcón et al., 2022).</p>
             </section>
@@ -372,6 +465,8 @@
                 <p>En la construcción de nuestras vidas no podemos seguir excluyendo como hasta ahora, toda retroalimentación al sentir, a la emoción, y a la intuición como fundamento de la relación entre los seres humanos y la naturaleza.</p>
                 
                 <p>El desarrollo de relaciones significativas tiene que ver con la capacidad de todo ser humano de movilizar su sensibilidad, imaginación creadora, su intuición, sus energías afectivas, su amor...</p>
+                <img src="c1.jpg" alt="Transferencia de conocimientos a colegios rurales" class="section-image">
+                <p class="image-caption">Fig. 7: Estudiantes de un colegio rural participando en actividades de aprendizaje sobre tecnologías geoespaciales y monitoreo ambiental con drones.</p>
                 
                 <blockquote>"La ecología del yo es uno de los imperativos más importantes para hacerle frente a la crisis actual. Los nuevos agentes de la ciudadanía ambiental deben desarrollar su capacidad de sentir y expresar la vida tal como debe ser sentida y vivida."</blockquote>
             </section>
