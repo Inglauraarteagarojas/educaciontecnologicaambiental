@@ -102,17 +102,9 @@
             }
         }
 
-        /* Apply rotation and animation delay to each segment */
-        .cat__segment:nth-of-type(1) {
-            transform: translate(-50%, -50%) rotate(-20deg);
-        }
-
-        .cat__segment:nth-of-type(1):before {
-            animation-delay: 0s;
-            transform: translateX(6em);
-        }
-
-        /* Más estilos de segmentos de gato aquí... simplificado por brevedad */
+        /* Estilos para los segmentos del gato */
+        .cat__segment:nth-of-type(1) { transform: translate(-50%, -50%) rotate(-20deg); }
+        .cat__segment:nth-of-type(1):before { animation-delay: 0s; transform: translateX(6em); }
         .cat__segment:nth-of-type(2) { transform: translate(-50%, -50%) rotate(-18.67deg); }
         .cat__segment:nth-of-type(2):before { animation-delay: 0.02s; transform: translateX(6em); }
         .cat__segment:nth-of-type(3) { transform: translate(-50%, -50%) rotate(-17.33deg); }
@@ -250,63 +242,6 @@
             transition: opacity 1s ease-in-out;
         }
 
-        /* Nuevo menú de navegación */
-        .menu {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            max-width: 100%;
-            margin: 20px auto;
-            list-style: none;
-            padding: 15px;
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-        }
-
-        .menu li {
-            position: relative;
-            padding: 10px;
-            transition: background-position-x 0.9s linear;
-            text-align: center;
-        }
-
-        .menu li a {
-            font-size: 16px;
-            color: #fff;
-            text-decoration: none;
-            transition: all 0.45s;
-            padding: 10px 15px;
-        }
-
-        .menu li:hover {
-            background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB3aWR0aD0iMzkwcHgiIGhlaWdodD0iNTBweCIgdmlld0JveD0iMCAwIDM5MCA1MCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMzkwIDUwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOGVjYWU2IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBkPSJNMCw0Ny41ODVjMCwwLDk3LjUsMCwxMzAsMAoJYzEzLjc1LDAsMjguNzQtMzguNzc4LDQ2LjE2OC0xOS40MTZDMTkyLjY2OSw0Ni41LDI0My42MDMsNDcuNTg1LDI2MCw0Ny41ODVjMzEuODIxLDAsMTMwLDAsMTMwLDAiLz4KPC9zdmc+Cg==");
-            animation: line 1s;
-        }
-
-        .menu li:hover a {
-            color: #8ecae6;
-        }
-
-        @keyframes line {
-            0% {
-                background-position-x: 390px;
-            }
-        }
-
-        /* Para pantallas móviles */
-        @media (max-width: 768px) {
-            .menu {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .menu li {
-                margin-right: 0;
-                margin-bottom: 5px;
-            }
-        }
-
         /* Estilos para Content Area */
         .content {
             flex: 1;
@@ -421,6 +356,137 @@
                 margin-bottom: 10px;
             }
         }
+
+        /* Nuevo estilo para el menú deslizante */
+        .clear {
+          clear: both;
+        }
+
+        .slide-toggle {
+          display: none;
+        }
+
+        .slidemenu {
+          font-family: 'Varela Round', sans-serif;
+          max-width: 800px;
+          margin: 20px auto;
+          overflow: hidden;
+          background-color: rgba(0, 0, 0, 0.3);
+          border-radius: 10px;
+          padding: 20px 10px 10px 10px;
+        }
+
+        .slidemenu label {
+          width: 14.28%; /* 100% / 7 elementos = 14.28% */
+          text-align: center;
+          display: block;
+          float: left;
+          color: #fff;
+          opacity: 0.6;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .slidemenu label:hover {
+          opacity: 0.8;
+          color: #8ecae6;
+        }
+
+        .slidemenu label span {
+          display: block;
+          padding: 10px 5px;
+          font-size: 14px;
+        }
+
+        .slidemenu label .icon {
+          font-size: 18px;
+          border: solid 2px #8ecae6;
+          text-align: center;
+          height: 40px;
+          width: 40px;
+          display: block;
+          margin: 0 auto;
+          line-height: 40px;
+          border-radius: 50%;
+          margin-bottom: 5px;
+          transition: all 0.3s ease;
+        }
+
+        /* Barra de estilo */
+        .slider {
+          width: 100%;
+          height: 4px;
+          display: block;
+          background: rgba(255, 255, 255, 0.2);
+          margin-top: 15px;
+          border-radius: 4px;
+          position: relative;
+        }
+
+        .slider .bar {
+          width: 14.28%; /* Mismo ancho que cada label */
+          height: 4px;
+          background: #8ecae6;
+          border-radius: 4px;
+          position: absolute;
+          left: 0;
+          transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+
+        /* Animaciones */
+        .slidemenu label, .slider .bar {
+          transition: all 400ms ease-in-out;
+        }
+
+        /* Toggle */
+        .slidemenu .slide-toggle:checked + label {
+          opacity: 1;
+        }
+
+        .slidemenu .slide-toggle:checked + label .icon {
+          background-color: #8ecae6;
+          color: #2c4763;
+          transform: scale(1.1);
+          box-shadow: 0 0 10px rgba(142, 202, 230, 0.5);
+        }
+
+        .slidemenu #slide-item-1:checked ~ .slider .bar { left: 0; }
+        .slidemenu #slide-item-2:checked ~ .slider .bar { left: 14.28%; }
+        .slidemenu #slide-item-3:checked ~ .slider .bar { left: 28.56%; } /* 14.28 * 2 */
+        .slidemenu #slide-item-4:checked ~ .slider .bar { left: 42.84%; } /* 14.28 * 3 */
+        .slidemenu #slide-item-5:checked ~ .slider .bar { left: 57.12%; } /* 14.28 * 4 */
+        .slidemenu #slide-item-6:checked ~ .slider .bar { left: 71.4%; }  /* 14.28 * 5 */
+        .slidemenu #slide-item-7:checked ~ .slider .bar { left: 85.68%; } /* 14.28 * 6 */
+
+        /* Responsive para móviles */
+        @media (max-width: 768px) {
+          .slidemenu {
+            padding: 10px 5px 5px 5px;
+          }
+          
+          .slidemenu label {
+            width: 100%;
+            margin-bottom: 10px;
+          }
+          
+          .slidemenu label .icon {
+            display: inline-block;
+            margin-right: 10px;
+            height: 30px;
+            width: 30px;
+            line-height: 30px;
+            font-size: 14px;
+          }
+          
+          .slidemenu label span {
+            display: inline-block;
+            vertical-align: middle;
+          }
+          
+          .slider {
+            display: none; /* Ocultamos la barra en móviles */
+          }
+        }
     </style>
 </head>
 <body>
@@ -473,16 +539,42 @@
     </header>
 
     <div class="main-content">
-        <nav id="menu">
-            <ul class="menu">
-                <li><a href="#introduccion">Introducción</a></li>
-                <li><a href="#campos-morficos">Campos Mórficos</a></li>
-                <li><a href="#educacion-ambiental">Educación Ambiental</a></li>
-                <li><a href="#casos-estudio">Casos de Estudio</a></li>
-                <li><a href="#despertar-emocional">Despertar Emocional</a></li>
-                <li><a href="#ciudadania-planetaria">Ciudadanía Planetaria</a></li>
-                <li><a href="#nuevas-practicas">Nuevas Prácticas</a></li>
-            </ul>
+        <!-- Nuevo menú deslizante -->
+        <nav id="menu" class="slidemenu">
+            <!-- Item 1 -->
+            <input type="radio" name="slideItem" id="slide-item-1" class="slide-toggle" checked/>
+            <label for="slide-item-1"><p class="icon">📚</p><span>Introducción</span></label>
+            
+            <!-- Item 2 -->
+            <input type="radio" name="slideItem" id="slide-item-2" class="slide-toggle"/>
+            <label for="slide-item-2"><p class="icon">🧠</p><span>Campos Mórficos</span></label>
+            
+            <!-- Item 3 -->
+            <input type="radio" name="slideItem" id="slide-item-3" class="slide-toggle"/>
+            <label for="slide-item-3"><p class="icon">🌍</p><span>Educación Ambiental</span></label>
+            
+            <!-- Item 4 -->
+            <input type="radio" name="slideItem" id="slide-item-4" class="slide-toggle"/>
+            <label for="slide-item-4"><p class="icon">📊</p><span>Casos de Estudio</span></label>
+            
+            <!-- Item 5 -->
+            <input type="radio" name="slideItem" id="slide-item-5" class="slide-toggle"/>
+            <label for="slide-item-5"><p class="icon">💭</p><span>Despertar Emocional</span></label>
+            
+            <!-- Item 6 -->
+            <input type="radio" name="slideItem" id="slide-item-6" class="slide-toggle"/>
+            <label for="slide-item-6"><p class="icon">🌐</p><span>Ciudadanía Planetaria</span></label>
+            
+            <!-- Item 7 -->
+            <input type="radio" name="slideItem" id="slide-item-7" class="slide-toggle"/>
+            <label for="slide-item-7"><p class="icon">🔄</p><span>Nuevas Prácticas</span></label>
+            
+            <div class="clear"></div>
+            
+            <!-- Barra indicadora -->
+            <div class="slider">
+                <div class="bar"></div>
+            </div>
         </nav>
 
         <div class="content">
@@ -668,41 +760,56 @@
             }, 2000); // 2 second delay to show the loader
         });
 
-        // Navegación suave al hacer clic en los enlaces del menú
-        document.querySelectorAll('.menu a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetSection.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-                
-                // Hacer visible la sección de destino
-                document.querySelectorAll('.section').forEach(section => {
-                    section.classList.remove('visible');
-                });
-                
-                targetSection.classList.add('visible');
+        // Función para manejar la navegación con el menú deslizante
+        document.querySelectorAll('.slide-toggle').forEach((toggle, index) => {
+          toggle.addEventListener('change', function() {
+            // Asociar cada botón de radio con su sección correspondiente
+            const sectionIds = [
+              'introduccion',
+              'campos-morficos',
+              'educacion-ambiental',
+              'casos-estudio',
+              'despertar-emocional',
+              'ciudadania-planetaria',
+              'nuevas-practicas'
+            ];
+            
+            // Obtener la sección a mostrar
+            const targetId = '#' + sectionIds[index];
+            const targetSection = document.querySelector(targetId);
+            
+            // Hacer scroll a la sección
+            window.scrollTo({
+              top: targetSection.offsetTop - 80,
+              behavior: 'smooth'
             });
+            
+            // Hacer visible la sección de destino
+            document.querySelectorAll('.section').forEach(section => {
+              section.classList.remove('visible');
+            });
+            
+            targetSection.classList.add('visible');
+          });
         });
 
-        // Funcionalidad para los botones de regresar
+        // Actualizar el menú deslizante cuando se hace clic en un botón de regreso
         document.querySelectorAll('.back-button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const menuElement = document.querySelector('#menu');
-                
-                // Hacer scroll al menú
-                window.scrollTo({
-                    top: menuElement.offsetTop - 20,
-                    behavior: 'smooth'
-                });
+          button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Obtener el ID de la sección a la que se debe volver
+            const menuElement = document.querySelector('#menu');
+            
+            // Hacer scroll al menú
+            window.scrollTo({
+              top: menuElement.offsetTop - 20,
+              behavior: 'smooth'
             });
+            
+            // Dejar seleccionado el primer elemento del menú
+            document.getElementById('slide-item-1').checked = true;
+          });
         });
 
         // Intersection Observer para revelar secciones durante el scroll
