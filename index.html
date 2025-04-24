@@ -377,7 +377,7 @@
         }
 
         .slidemenu label {
-          width: 14.28%; /* 100% / 7 elementos = 14.28% */
+          width: 12.5%; /* 100% / 8 elementos = 12.5% */
           text-align: center;
           display: block;
           float: left;
@@ -424,7 +424,7 @@
         }
 
         .slider .bar {
-          width: 14.28%; /* Mismo ancho que cada label */
+          width: 12.5%; /* Mismo ancho que cada label */
           height: 4px;
           background: #8ecae6;
           border-radius: 4px;
@@ -451,12 +451,13 @@
         }
 
         .slidemenu #slide-item-1:checked ~ .slider .bar { left: 0; }
-        .slidemenu #slide-item-2:checked ~ .slider .bar { left: 14.28%; }
-        .slidemenu #slide-item-3:checked ~ .slider .bar { left: 28.56%; } /* 14.28 * 2 */
-        .slidemenu #slide-item-4:checked ~ .slider .bar { left: 42.84%; } /* 14.28 * 3 */
-        .slidemenu #slide-item-5:checked ~ .slider .bar { left: 57.12%; } /* 14.28 * 4 */
-        .slidemenu #slide-item-6:checked ~ .slider .bar { left: 71.4%; }  /* 14.28 * 5 */
-        .slidemenu #slide-item-7:checked ~ .slider .bar { left: 85.68%; } /* 14.28 * 6 */
+        .slidemenu #slide-item-2:checked ~ .slider .bar { left: 12.5%; }
+        .slidemenu #slide-item-3:checked ~ .slider .bar { left: 25%; } /* 12.5 * 2 */
+        .slidemenu #slide-item-4:checked ~ .slider .bar { left: 37.5%; } /* 12.5 * 3 */
+        .slidemenu #slide-item-5:checked ~ .slider .bar { left: 50%; } /* 12.5 * 4 */
+        .slidemenu #slide-item-6:checked ~ .slider .bar { left: 62.5%; }  /* 12.5 * 5 */
+        .slidemenu #slide-item-7:checked ~ .slider .bar { left: 75%; } /* 12.5 * 6 */
+        .slidemenu #slide-item-8:checked ~ .slider .bar { left: 87.5%; } /* 12.5 * 7 */
 
         /* Responsive para móviles */
         @media (max-width: 768px) {
@@ -487,6 +488,23 @@
             display: none; /* Ocultamos la barra en móviles */
           }
         }
+
+        /* Video section styles */
+        .video-container {
+            margin: 20px 0;
+        }
+
+        .video-wrapper {
+            margin: 20px 0 40px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container h3 {
+            color: #8ecae6;
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
@@ -506,6 +524,9 @@
             <div class="cat__segment"></div>
             <div class="cat__segment"></div>
             <div class="cat__segment"></div>
+            <div class="cat__segment"></div>
+            <div class="cat__segment"></div>
+            <div .cat__segment></div>
             <div class="cat__segment"></div>
             <div class="cat__segment"></div>
             <div class="cat__segment"></div>
@@ -568,6 +589,10 @@
             <!-- Item 7 -->
             <input type="radio" name="slideItem" id="slide-item-7" class="slide-toggle"/>
             <label for="slide-item-7"><p class="icon">🔄</p><span>Nuevas Prácticas</span></label>
+
+            <!-- Agregar en el menú deslizante, antes del div.clear -->
+            <input type="radio" name="slideItem" id="slide-item-8" class="slide-toggle"/>
+            <label for="slide-item-8"><p class="icon">🎥</p><span>Videos</span></label>
             
             <div class="clear"></div>
             
@@ -724,6 +749,36 @@
                 
                 <blockquote>"De la proclama de ECO 92 a las demandas inherentes al desarrollo sostenible de los pueblos, media un abismo que solo podrá ser salvado por procesos pedagógicos."</blockquote>
             </section>
+
+            <!-- Agregar después de la última sección y antes del footer -->
+            <section id="videos-orientativos" class="section">
+                <div class="section-header">
+                    <h2>Videos Orientativos</h2>
+                    <a href="#menu" class="back-button">↑ Regresar al menú</a>
+                </div>
+                
+                <div class="video-container">
+                    <h3>Video 1: Procesamiento de Datos con Software Libre</h3>
+                    <div class="video-wrapper">
+                        <iframe src="https://drive.google.com/file/d/15von87Jy7G-sfCbcI9iCO2dDjDMh9qMu/preview" 
+                                width="100%" 
+                                height="400" 
+                                allow="autoplay">
+                        </iframe>
+                    </div>
+                    
+                    <h3>Video 2: Tutorial de Procesamiento de Datos</h3>
+                    <div class="video-wrapper">
+                        <iframe width="100%" 
+                                height="400" 
+                                src="https://www.youtube.com/embed/-DY_7O3-3Dk" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 
@@ -765,13 +820,14 @@
           toggle.addEventListener('change', function() {
             // Asociar cada botón de radio con su sección correspondiente
             const sectionIds = [
-              'introduccion',
-              'campos-morficos',
-              'educacion-ambiental',
-              'casos-estudio',
-              'despertar-emocional',
-              'ciudadania-planetaria',
-              'nuevas-practicas'
+                'introduccion',
+                'campos-morficos',
+                'educacion-ambiental',
+                'casos-estudio',
+                'despertar-emocional',
+                'ciudadania-planetaria',
+                'nuevas-practicas',
+                'videos-orientativos'  // Agregar esta nueva línea
             ];
             
             // Obtener la sección a mostrar
